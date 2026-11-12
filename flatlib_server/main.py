@@ -303,7 +303,7 @@ async def predict_monthly(request: NatalChartRequest):
         natal_datetime = Datetime(request.date.replace("-", "/"), request.time, request.tz)
 
         # Вычисляем дату следующего месяца
-        current_date = datetime.strptime(request.date, "%Y-%m-%d").date()
+        current_date = datetime.now().date()
         next_month_date = current_date.replace(day=1) + relativedelta(months=1)
         target_date_str = next_month_date.strftime("%Y-%m-%d")
 
@@ -327,7 +327,7 @@ async def predict_yearly(request: NatalChartRequest):
         natal_datetime = Datetime(request.date.replace("-", "/"), request.time, request.tz)
 
         # Вычисляем дату следующего года
-        current_date = datetime.strptime(request.date, "%Y-%m-%d").date()
+        current_date = datetime.now().date()
         next_year_date = current_date.replace(month=1, day=1) + relativedelta(years=1)
         target_date_str = next_year_date.strftime("%Y-%m-%d")
 
