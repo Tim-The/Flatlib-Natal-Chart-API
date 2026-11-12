@@ -1,65 +1,60 @@
-# Flatlib Natal Chart API
+# Flatlib Natal Chart API – README (English translation)
 
-Локальный Home Assistant аддон, предоставляющий высокопроизводительный HTTP API для расширенных астрологических расчетов с использованием [Flatlib](https://github.com/flatangle/flatlib).
+Translated from the Russian add-on README. Source: `navi-vonamut/Flatlib-Natal-Chart-API`.
 
------
+## Overview
 
-## ✨ Обновление до версии v0.2.0
+A local Home Assistant add-on that provides a high-performance HTTP API for advanced astrological calculations using [Flatlib](https://github.com/flatangle/flatlib).
 
-  * **Переход на FastAPI:** Бэкенд сервера был полностью переписан с Flask на **FastAPI**, что значительно повышает производительность и стабильность.
-  * **Расширенные возможности:** Добавлены новые эндпоинты для расчета ежедневных, ежемесячных, ежегодных предсказаний и синастрии.
+## ✨ Update to version v0.2.0
 
------
+- **Switch to FastAPI:** The server backend was completely rewritten from Flask to **FastAPI**, which significantly improves performance and stability.
+- **Extended capabilities:** Added new endpoints for calculating daily, monthly and yearly predictions, as well as synastry.
 
-## 📄 Описание
+## 📄 Description
 
-Этот аддон запускает высокопроизводительный **FastAPI-сервер** локально в вашей среде Home Assistant. Он служит мощным бэкендом для сложных астрологических вычислений, предлагая быстрый и надежный API. Все расчеты выполняются локально, что обеспечивает **конфиденциальность** ваших данных.
+This add-on runs a high-performance **FastAPI server** locally in your Home Assistant environment. It serves as a powerful backend for complex astrological computations, offering a fast and reliable API. All calculations are done locally, which keeps your data **private**.
 
-Аддон предназначен для **интеграции с другими компонентами Home Assistant**, такими как автоматизации, сенсоры и скрипты, а также для передачи структурированных данных в LLM (Large Language Models) для персонализированных интерпретаций.
+The add-on is intended for **integration with other Home Assistant components**, such as automations, sensors and scripts, and for passing structured data to LLMs (Large Language Models) for personalized interpretations.
 
------
+## 🔮 Features
 
-## 🔮 Возможности
+- **Natal chart calculation:** Full calculation of planet positions, angles (Asc, MC), house cusps, lunar nodes, Lilith (Syzygy) and the Part of Fortune.
+- **Aspect calculation:** Determination of natal aspects.
+- **Daily, monthly and yearly predictions:** New endpoints for calculating transits and predictions for specific periods.
+- **Synastry calculation:** New endpoint for analyzing the compatibility of two natal charts.
+- **JSON output:** Data is provided in a convenient JSON format, ready for processing in Home Assistant or passing to an LLM.
 
-  * **Расчёт натальной карты:** Полный расчет положений планет, углов (Asc, MC), куспидов домов, лунных узлов, Лилит (Syzygy) и Парса Фортуны.
-  * **Расчёт аспектов:** Определение натальных аспектов.
-  * **Ежедневные, ежемесячные, ежегодные предсказания:** Новые эндпоинты для расчета транзитов и предсказаний на определенные периоды.
-  * **Расчёт синастрии:** Новый эндпоинт для анализа совместимости двух натальных карт.
-  * **JSON-вывод:** Данные предоставляются в удобном формате JSON, готовом для обработки в Home Assistant или передачи в LLM.
+## 🛠️ Configuration
 
------
+After installing the add-on, go to the **"Configuration"** tab in the user interface.
 
-## 🛠️ Настройка
+- **`log_level` (Logging level):** Sets how detailed the add-on's logs are. `info` is recommended for normal operation. Use `debug` for troubleshooting.
 
-После установки аддона перейдите на вкладку **"Конфигурация"** в пользовательском интерфейсе.
+## 💡 Using the API
 
-  * **`log_level` (Уровень логирования):** Определяет детализацию логов аддона. Рекомендуется `info` для обычной работы. Для отладки используйте `debug`.
+The server is available at `http://a0d7b954-flatlib-server:8080`. To access it from outside Home Assistant, set up port forwarding in the add-on configuration.
 
------
+### Main endpoints
 
-## 💡 Использование API
+- **`/natal` (POST):** Calculates a natal chart.
+- **`/predict/daily` (POST):** Daily predictions.
+- **`/predict/monthly` (POST):** Monthly predictions.
+- **`/predict/yearly` (POST):** Yearly predictions.
+- **`/synastry` (POST):** Calculates synastry.
+- **`/health` (GET):** Checks that the API is running.
 
-Сервер доступен по адресу `http://a0d7b954-flatlib-server:8080`. Для доступа извне Home Assistant, настройте перенаправление портов в конфигурации аддона.
+Detailed request and response examples for all endpoints are in the repository's main [README](https://github.com/navi-vonamut/Flatlib-Natal-Chart-API/blob/main/README.md).
 
-### Основные эндпоинты:
+## ❓ Support and feedback
 
-  * **`/natal` (POST):** Для расчета натальной карты.
-  * **`/predict/daily` (POST):** Для ежедневных предсказаний.
-  * **`/predict/monthly` (POST):** Для ежемесячных предсказаний.
-  * **`/predict/yearly` (POST):** Для ежегодных предсказаний.
-  * **`/synastry` (POST):** Для расчета синастрии.
-  * **`/health` (GET):** Проверка статуса работы API.
+If you have questions or problems, please open an [Issue in the main GitHub repository](https://github.com/navi-vonamut/Flatlib-Natal-Chart-API/issues).
 
-Подробные примеры запросов и ответов для всех эндпоинтов доступны в основном [README репозитория](https://www.google.com/search?q=https://github.com/navi-vonamut/Flatlib-Natal-Chart-API/blob/main/README.md).
+## 📄 License
 
------
+This add-on is distributed under the [MIT License](https://github.com/navi-vonamut/Flatlib-Natal-Chart-API/blob/main/LICENSE).
 
-## ❓ Поддержка и обратная связь
+## Note on your setup
 
-Если у вас возникнут вопросы или проблемы, пожалуйста, создайте [Issue в основном репозитории GitHub](https://www.google.com/search?q=https://github.com/navi-vonamut/Flatlib-Natal-Chart-API/issues).
+The README says the add-on is reached at `http://a0d7b954-flatlib-server:8080`, but the integration's `api.py` uses `http://localhost:8080`. If the integration can't reach the add-on, that hostname is where to look.
 
------
-
-## 📄 Лицензия
-
-Этот аддон распространяется под лицензией [MIT License](https://www.google.com/search?q=LICENSE).
